@@ -30,10 +30,11 @@ import {
           user: null,
         };
       case GET_AUTH_USER:
+        
         return {   
           ...state,
           isAuth:true,
-          ...action.payload
+          user: {...action.payload}
         };
         case ERROR:
           return{

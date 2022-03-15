@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import LoginModal from "../Components/auth/loginModal";
 import RegiterModal from "../Components/auth/registerModal";
 import { logoutHandler } from "../redux/actions/auth-action";
+import React from "react";
+import "./navbar.css"
+
 
 export default function NavFct() {
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -15,11 +18,19 @@ export default function NavFct() {
   }
   const authLinks = (
     <>
-      <Link to="/Dashboard">
-        <Nav.Link href="#home">Dashboard</Nav.Link>
-      </Link>
-      <Button onClick={logoutUser} >Logout </Button>
-    </>
+       <Link className="link2" to="/">
+       <Nav.Link href="#home">Home</Nav.Link>
+       </Link>
+       <Link className="link2" to="/Products">
+       <Nav.Link href="#products">Products</Nav.Link>
+       </Link>
+       <Link className="link2" to="/Contact">
+       <Nav.Link href="#contact">Contact</Nav.Link>
+       </Link>
+      
+      
+      <Button className="but" onClick={logoutUser} >Logout </Button>
+          </>
   );
 
   const visitorLinks = (
@@ -30,21 +41,15 @@ export default function NavFct() {
   );
   return (
     <div className="Navbar">
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">
-            <img
-              src="/images/logo.png"
-              width="45"
-              height="40"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            <Link to="/">
-              <Nav.Link href="#home">Home</Nav.Link>
+          <Link className="link" to="/">
+              <Nav.Link className="titre" href="#home">AntiGaspi</Nav.Link>
             </Link>
+             
+           
+          <Nav className="me-auto">
+           
 
 {  isAuth? authLinks:   visitorLinks   }
 

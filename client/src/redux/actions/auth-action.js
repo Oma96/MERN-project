@@ -65,10 +65,10 @@ export const getAuthUser=()=> async (dispatch)=>{
   try {
     const config={
       headers:{
-        "auth-token":localStorage.getItem('token')
+        "x-auth-token":localStorage.getItem('token')
       }
     }
-   const res= await axios.get('http://localhost:5000/api/user/authUser', config)
+   const res= await axios.get('http://localhost:5000/api/user/profile', config)
    dispatch({
      type:GET_AUTH_USER,
      payload:res.data

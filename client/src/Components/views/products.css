@@ -1,0 +1,14 @@
+.panierListContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    margin-top: 100px;
+    
+}
+.text{
+    font-family: Do Hyeon, sans-serif;
+    font-size: 30px;
+    margin-left: 400px;
+    margin-top:50px
+}

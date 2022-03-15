@@ -16,6 +16,7 @@ export default function Example() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
   //local states to get the payload data from the user
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -31,8 +32,8 @@ export default function Example() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        SignUp
+      <Button variant="primary" style={{fontFamily:"Do Hyeon, sans-serif"}} onClick={handleShow}>
+        Sign up
       </Button>
 
       <Modal show={show} onHide={handleClose}>

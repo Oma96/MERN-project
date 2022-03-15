@@ -1,8 +1,10 @@
 import React from "react";
+import "./loginModal.css"
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginHandler } from "../../redux/actions/auth-action";
+
 
 export default function Example() {
   const [show, setShow] = useState(false);
@@ -21,8 +23,8 @@ export default function Example() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        SignIn
+      <Button className="but" variant="primary"   onClick={handleShow}>
+        Sign in
       </Button>
 
       <Modal show={show} onHide={handleClose}>

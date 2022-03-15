@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Product = require("./Product");
 const schema = mongoose.Schema;
 
 const userSchema = schema({
@@ -8,7 +9,7 @@ const userSchema = schema({
     unique: true,
   },
   password:String,
-  datteCreation:{
+  dateCreation:{
       type:Date,
       default:Date.now()
   }

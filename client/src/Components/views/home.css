@@ -1,0 +1,17 @@
+
+.text{
+    font-family: Do Hyeon, sans-serif;
+    font-size: 90px;
+    color:black;
+    max-width: 500px;
+    text-align:center;
+}
+.text2{
+    margin-top: 150px;
+    margin-left: 150px;
+    font-family: Do Hyeon, sans-serif;
+    font-size: 30px;
+    color: black;
+    max-width: 1000px;
+    
+}
