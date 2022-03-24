@@ -1,19 +1,17 @@
 import React from "react";
 import "./loginModal.css"
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal,Button,Form } from "react-bootstrap";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginHandler } from "../../redux/actions/auth-action";
 
 
 export default function Example() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
   const dispatch = useDispatch();
   const loginUser = (e) => {
     e.preventDefault();
@@ -23,7 +21,7 @@ export default function Example() {
 
   return (
     <>
-      <Button className="but" variant="primary"   onClick={handleShow}>
+      <Button id="but" variant="primary" onClick={handleShow}>
         Sign in
       </Button>
 
@@ -38,8 +36,7 @@ export default function Example() {
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                onChange={(e) => setemail(e.target.value)}
-              />
+                onChange={(e) => setemail(e.target.value)} />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
@@ -61,5 +58,5 @@ export default function Example() {
         </Modal.Body>
       </Modal>
     </>
-  );
+  )
 }

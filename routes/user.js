@@ -54,24 +54,30 @@ const {email,password}= req.body
   try {
     // check if the email already exist
     let user= await User.findOne({email})
-    if (!user){
-      return res.status(404).json({msg:"the email has no account"})
-    }
+    console.log(user)
+    res.status(200).json({msg:"the email has no account"})
 
-    const isMatch= await bcrypt.compare(password,user.password)
+  } 
+  
+    // if (!user){
+    //   return res.status(404).json({msg:"the email has no account"})
+    // }
+
+//     const isMatch= await bcrypt.compare(password,user.password)
    
-    if(!isMatch){
-      return res.status(400).json({msg:'bad crediantials'})
-    } 
-    // sign a token
-    const token = await jwt.sign({userId:user._id},process.env.SECRET_PASS)
+//     if(!isMatch){
+//       return res.status(400).json({msg:'bad crediantials'})
+//     } 
     
-    res.status(200).json({user,token})
-  } catch (error) {
+//     // sign a token
+//     const token = await jwt.sign({userId:user._id},process.env.SECRET_PASS)
+    
+//     res.status(200).json({user,token})
+   catch (error) {
     res.status(500).json({msg:error.message})
-  }
+  }})
 
-})
+// })
  //@role: getting the authentificated user
 //@url: http://localhost:5000/api/user/profile
 router.get("/profile",isAuth,(req,res)=>{

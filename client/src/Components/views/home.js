@@ -1,25 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import axios from "axios";
 import './home.css'
 
 
 
 export default function Home() {
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/api/user/all")
-  //     .then((res) => console.log(res))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+
 
   return (
     <div >
-      <h1 className="text"> Sauvez des produits invendus à prix reduit </h1>
-      <p className="text2">Chez AntiGaspi on lutte contre le gaspillage alimentaire. Tous les jours et près de chez vous,
-         de nombreux commerçants vous proposent sur notre application des aliments à petit prix.
-         Alors, qu'attendez-vous pour essayer?</p>
+      <h1 id="text"> Save unsold bascket meals</h1>
+      <h1 id="text1">To combat food waste</h1>
+      <p className="text2">
+At AntiGaspi we fight against food waste. Every day and near you, 
+many merchants offer you food at low prices on our application.
+ So what are you waiting for to try? Sign Up and save a meal!</p>
     </div>
   );
 }

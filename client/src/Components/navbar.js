@@ -1,12 +1,14 @@
    
-import { Nav, Navbar, Container, Button } from "react-bootstrap";
+import { Nav, Navbar, Container, Button} from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LoginModal from "../Components/auth/loginModal";
 import RegiterModal from "../Components/auth/registerModal";
 import { logoutHandler } from "../redux/actions/auth-action";
 import React from "react";
 import "./navbar.css"
+import {BsCartFill} from "react-icons/bs"
+
 
 
 export default function NavFct() {
@@ -19,17 +21,19 @@ export default function NavFct() {
   const authLinks = (
     <>
        <Link className="link2" to="/">
-       <Nav.Link href="#home">Home</Nav.Link>
+       <Nav.Link id="link2" href="#home">Home</Nav.Link>
        </Link>
        <Link className="link2" to="/Products">
-       <Nav.Link href="#products">Products</Nav.Link>
+       <Nav.Link id="link2" href="#products">Products</Nav.Link>
        </Link>
        <Link className="link2" to="/Contact">
-       <Nav.Link href="#contact">Contact</Nav.Link>
+       <Nav.Link id="link2" href="#contact">Contact</Nav.Link>
        </Link>
+      <NavLink to='/cart'> <Button variant="success" id="but1" ><BsCartFill/>0</Button></NavLink>
       
-      
-      <Button className="but" onClick={logoutUser} >Logout </Button>
+       
+       
+      <Button id="but" onClick={logoutUser} >Logout </Button>
           </>
   );
 
@@ -44,7 +48,7 @@ export default function NavFct() {
       <Navbar bg="light" variant="light">
         <Container>
           <Link className="link" to="/">
-              <Nav.Link className="titre" href="#home">AntiGaspi</Nav.Link>
+              <Nav.Link id="titre" href="#home">AntiGaspi</Nav.Link>
             </Link>
              
            

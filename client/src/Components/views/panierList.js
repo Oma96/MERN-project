@@ -8,16 +8,15 @@ import { getAllHandler } from '../../redux/actions/prod-actions'
      useEffect(()=>{
      dispatch(getAllHandler())
      },[])
-     const product= useSelector(state=>state.products)
+    
+     const product = useSelector(state=>state.products.products)
   
      return (
       <div>
         
         <div className='panierListContainer'>
-            {product.map((el)=>(
-                <Panier el={el}/>
-            ))
-            }  
+              {product.map((el,key)=>(
+                <Panier el={el} key={el.id}/>))}    
             </div>
     </div>
   )

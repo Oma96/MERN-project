@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import { registerHandler } from "../../redux/actions/auth-action";
+import "./loginModal.css"
 
 export default function Example() {
   //manipulate the modal
@@ -32,7 +33,7 @@ export default function Example() {
 
   return (
     <>
-      <Button variant="primary" style={{fontFamily:"Do Hyeon, sans-serif"}} onClick={handleShow}>
+      <Button  variant="primary" style={{fontFamily:"Do Hyeon, sans-serif", backgroundColor:'#4062BB'}} onClick={handleShow}>
         Sign up
       </Button>
 

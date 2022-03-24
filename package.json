@@ -1,7 +1,6 @@
 {
   "name": "auth",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -18,5 +17,15 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.3",
     "nodemon": "^2.0.15"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oma96/auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Oma96/auth/issues"
+  },
+  "homepage": "https://github.com/Oma96/auth#readme",
+  "description": ""
 }

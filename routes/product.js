@@ -66,12 +66,19 @@ router.delete("/delete/:id", async (req,res)=>{
     }
 })
 
-//@role: filter data
-// url: http://localhost:5000/api/product/filter
+//@role: get product by id
+////url:http://localhost:5000/api/product/all/:id
 
-router.get("/filter", async (req,res)=>{
-    
+router.get("/all/:id",async (req,res)=>{
+    try {
+        const product= await Product.findById(req.params.id)
+        res.status(200).json({product})
+    } catch (error) {
+        res.status(400).json({msg:error.message})
+    }
 })
+
+
 
 
 

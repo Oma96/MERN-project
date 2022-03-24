@@ -1,23 +1,32 @@
 import React from 'react'
 import {Card,ListGroup,ListGroupItem,Button} from 'react-bootstrap'
+import "./panier.css"
+import {useDispatch} from 'react-redux'
+import { addToCart } from '../../redux/actions/cart-actions'
 
 const panier = ({el}) => {
+
+  const dispatch = useDispatch()
+
+  const addPanier =(panier)=>{
+    dispatch(addToCart(panier))
+  }
   return (
-    <div>
-        <Card className='card' style={{ width: '18rem' }}>
+    <div >
+        <Card className='card' style={{width: '18rem'}} >
   
-       <Card.Body>
-      <Card.Title>Type: {el.type}</Card.Title>
+       <Card.Body id ='title'>
+      <Card.Title id='title'>{el.type}</Card.Title>
     
        </Card.Body>
   <ListGroup className="list-group-flush">
-    <ListGroupItem>Prix: {el.prix}</ListGroupItem>
-    <ListGroupItem>Adresse de récupération: {el.adresse}</ListGroupItem>
-    <ListGroupItem>Date de récupération: {el.date}</ListGroupItem>
-    <ListGroupItem>Télephone: {el.telephone}</ListGroupItem>
+    <ListGroupItem >{el.price}</ListGroupItem>
+    <ListGroupItem>Adress: {el.adress}</ListGroupItem>
+    <ListGroupItem>Date: {el.date}</ListGroupItem>
+    <ListGroupItem>Phone: {el.phone}</ListGroupItem>
   </ListGroup>
   <Card.Body>
-    <Button variant="primary">Reserve</Button>
+  <Button onClick={()=>addPanier()} id="button">Reserve</Button>
     
   </Card.Body>
 </Card>

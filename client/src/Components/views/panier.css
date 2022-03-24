@@ -1,0 +1,23 @@
+.card{
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  
+}
+.card:hover{
+  transform: scale(1.2);
+}
+.list-group-flush{
+    font-size: 20px;
+ }
+
+ #title{
+  
+  border-radius: 20px;
+  font-size: 30px;
+   background-color: #A7E2E3;
+}
+
+#button{
+  background-color: #4062BB;
+}
