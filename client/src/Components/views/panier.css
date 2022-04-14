@@ -4,9 +4,7 @@
   display: flex;
   
 }
-.card:hover{
-  transform: scale(1.2);
-}
+
 .list-group-flush{
     font-size: 20px;
  }

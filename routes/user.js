@@ -1,6 +1,7 @@
 const express= require("express");
 const res = require("express/lib/response");
 const User = require("../models/User");
+const Product= require("../models/Product")
 const router=express.Router()
 const bcrypt= require("bcrypt")
 const jwt = require("jsonwebtoken")
@@ -54,25 +55,21 @@ const {email,password}= req.body
   try {
     // check if the email already exist
     let user= await User.findOne({email})
-    console.log(user)
-    res.status(200).json({msg:"the email has no account"})
-
-  } 
-  
-    // if (!user){
-    //   return res.status(404).json({msg:"the email has no account"})
-    // }
-
-//     const isMatch= await bcrypt.compare(password,user.password)
+    
+    if (!user){
+      return res.status(404).json({msg:"the email has no account"})
+    }
+ 
+    const isMatch= await bcrypt.compare(password,user.password)
    
-//     if(!isMatch){
-//       return res.status(400).json({msg:'bad crediantials'})
-//     } 
+    if(!isMatch){
+      return res.status(400).json({msg:'bad crediantials'})
+    } 
     
-//     // sign a token
-//     const token = await jwt.sign({userId:user._id},process.env.SECRET_PASS)
+    // sign a token
+    const token = await jwt.sign({userId:user._id},process.env.SECRET_PASS)
     
-//     res.status(200).json({user,token})
+    res.status(200).json({user,token})}
    catch (error) {
     res.status(500).json({msg:error.message})
   }})

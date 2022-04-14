@@ -3,7 +3,8 @@ const res = require("express/lib/response");
 const Product = require("../models/Product");
 const router=express.Router()
 const bcrypt= require("bcrypt")
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const isAuth = require("../Middlewares/isAuth");
 
 
 //@role: testing
@@ -65,18 +66,22 @@ router.delete("/delete/:id", async (req,res)=>{
         res.status(400).json({msg:error.message})
     }
 })
+// @role: get product by id
+//url:http://localhost:5000/api/product/get/:id
 
-//@role: get product by id
-////url:http://localhost:5000/api/product/all/:id
-
-router.get("/all/:id",async (req,res)=>{
-    try {
-        const product= await Product.findById(req.params.id)
+router.get("/get/:id", async(req,res)=>{
+    const ID =req.params.id
+    try{
+        const product = await Product.findById(ID)
         res.status(200).json({product})
-    } catch (error) {
+    } catch{
         res.status(400).json({msg:error.message})
     }
 })
+
+
+
+
 
 
 

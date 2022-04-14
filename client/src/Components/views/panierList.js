@@ -16,7 +16,7 @@ import { getAllHandler } from '../../redux/actions/prod-actions'
         
         <div className='panierListContainer'>
               {product.map((el,key)=>(
-                <Panier el={el} key={el.id}/>))}    
+                <Panier el={el} key={el._id} productID={el._id}/>))}    
             </div>
     </div>
   )

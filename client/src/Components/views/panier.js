@@ -1,15 +1,17 @@
 import React from 'react'
 import {Card,ListGroup,ListGroupItem,Button} from 'react-bootstrap'
 import "./panier.css"
+import { useNavigate } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { addToCart } from '../../redux/actions/cart-actions'
 
-const panier = ({el}) => {
-
+const panier = ({el,productID}) => {
+  let navigate=useNavigate()
   const dispatch = useDispatch()
-
-  const addPanier =(panier)=>{
-    dispatch(addToCart(panier))
+  
+  const addPanier =()=>{
+    dispatch(addToCart(productID))
+    navigate('/cart')
   }
   return (
     <div >
@@ -26,7 +28,7 @@ const panier = ({el}) => {
     <ListGroupItem>Phone: {el.phone}</ListGroupItem>
   </ListGroup>
   <Card.Body>
-  <Button onClick={()=>addPanier()} id="button">Reserve</Button>
+  <Button onClick={addPanier} id="button">Reserve</Button>
     
   </Card.Body>
 </Card>
