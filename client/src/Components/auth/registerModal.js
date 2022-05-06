@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import {
   Modal,
-  Button,
   Form,
   InputGroup,
   Dropdown,
@@ -10,8 +9,23 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import { registerHandler } from "../../redux/actions/auth-action";
-import "./loginModal.css"
+import styled from "styled-components";
 
+const MenuItem= styled.div`
+font-size: 14px;
+cursor: pointer;
+margin-left: 25px
+`
+const Button= styled.button`
+padding: 10px;
+font-size: 20px;
+background-color: transparent;
+cursor: pointer;
+border-radius:10px;
+background-color:#DB2B39;
+border:none;
+
+`
 export default function Example() {
   //manipulate the modal
   const [show, setShow] = useState(false);
@@ -33,9 +47,9 @@ export default function Example() {
 
   return (
     <>
-      <Button  variant="primary" style={{fontFamily:"Do Hyeon, sans-serif", backgroundColor:'#4062BB'}} onClick={handleShow}>
-        Sign up
-      </Button>
+     <MenuItem>
+       <Button onClick={handleShow}>Register</Button>
+     </MenuItem>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -85,7 +99,7 @@ export default function Example() {
               </InputGroup>
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={registerUser}>
+            <Button onClick={registerUser}>
               Submit
             </Button>
           </Form>

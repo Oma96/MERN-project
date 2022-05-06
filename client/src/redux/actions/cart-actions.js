@@ -1,20 +1,44 @@
-import { ADD } from "../action-types/cart-action-types"
+import {ADD_TO_FAV,REMOVE_FROM_FAV} from "../action-types/cart-action-types"
 import axios from "axios"
 
 
+export const addFav=(_id)=>async(dispatch,getState)=>{
 
-export const addToCart=(id)=> async(dispatch,getState)=>{
-    
-    await axios
-    .get(`http://localhost:5000/api/product/get/${id}`)
-    .then((res)=>
-      dispatch({
-        type:ADD,
-        payload:res.data
-        
-    }))
-  .catch(err=>console.log(err))
+  const {data} = await axios.get (`http://localhost:5000/api/product/get/${_id}`)
+   console.log(data)
+  dispatch({
+    type:ADD_TO_FAV,
+    payload:{
+      product:data.product._id,
+      type: data.product.type,
+      price: data.product.price,
+      adress: data.product.adress,
+      date: data.product.date,
+      phone: data.product.phone
+    }
+})
 
+localStorage.setItem('cartItems',JSON.stringify(getState().cart.cartItems))
 
-localStorage.setItem( 'cart',JSON.stringify(getState().cart.cart))
 }
+
+export const removeFav=(_id)=> async (dispatch,getState)=>{
+  
+  dispatch({
+    type: REMOVE_FROM_FAV,
+    payload:_id
+  })
+
+  localStorage.setItem('cartItems',JSON.stringify(getState().cart.cartItems))
+}
+  
+
+
+
+
+  
+  
+    
+  
+
+      

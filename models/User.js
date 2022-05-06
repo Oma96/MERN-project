@@ -14,6 +14,8 @@ const userSchema = schema({
     type: Number,
     default: 0
 },
+favorite:Array,
+
   dateCreation:{
       type:Date,
       default:Date.now()

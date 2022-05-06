@@ -9,7 +9,8 @@ import { useDispatch } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Products from './Components/views/products';
 import Dashboard from './Components/views/dashboard'
-import Cart from './Components/views/cart';
+import Favorites from './Components/views/favorites';
+import Footer from './Components/component/footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,9 +26,11 @@ function App() {
           <Route exact path="/" element={<Home />}/> 
           <Route path="/Products" element={<Products/>} />
           <Route path="/Dashboard" element={<Dashboard/>}/>
-          <Route path="/Cart" element={<Cart/>}/>
+          <Route path="/Favorites" element={<Favorites/>}/>
         </Routes>
+        <Footer/>
       </Router>
+
     </div>
   );
 }
