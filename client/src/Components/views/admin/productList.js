@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import Panier from './panier'
+import Product from './product'
 import {useDispatch,useSelector} from "react-redux"
-import { getAllHandler } from '../../redux/actions/prod-actions'
+import { getAllHandler } from '../../../redux/actions/prod-actions'
 import styled from 'styled-components'
 
 
@@ -14,7 +14,7 @@ justify-content: space-between;
 flex-wrap:wrap;
 `
 
-   export default function PanierList  ({input}) {
+   export default function ProductList ({input}) {
      const dispatch= useDispatch()
      useEffect(()=>{
      dispatch(getAllHandler())
@@ -29,7 +29,7 @@ flex-wrap:wrap;
               {product
               .filter(el => el.name.toUpperCase().includes(input.toUpperCase()))
               .map((el,key)=>(
-                <Panier el={el} key={el._id} productID={el._id}/>))}    
+                <Product el={el} key={el._id} productID={el._id}/>))}    
             </Container>
    
   )

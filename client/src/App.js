@@ -8,9 +8,10 @@ import { getAuthUser } from "./redux/actions/auth-action";
 import { useDispatch } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Products from './Components/views/products';
-import Dashboard from './Components/views/dashboard'
+import AddProduct from './Components/views/addProduct';
 import Favorites from './Components/views/favorites';
 import Footer from './Components/component/footer';
+import ProductAdmin from './Components/views/admin/productAdmin';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,8 +26,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}/> 
           <Route path="/Products" element={<Products/>} />
-          <Route path="/Dashboard" element={<Dashboard/>}/>
+          <Route path="/Add" element={<AddProduct/>}/>
           <Route path="/Favorites" element={<Favorites/>}/>
+          <Route path="ProdAdmin" element={<ProductAdmin/>}/>
         </Routes>
         <Footer/>
       </Router>

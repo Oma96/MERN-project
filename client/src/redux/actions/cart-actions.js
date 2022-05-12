@@ -10,8 +10,9 @@ export const addFav=(_id)=>async(dispatch,getState)=>{
     type:ADD_TO_FAV,
     payload:{
       product:data.product._id,
-      type: data.product.type,
+      name: data.product.name,
       price: data.product.price,
+      desc:data.product.desc,
       adress: data.product.adress,
       date: data.product.date,
       phone: data.product.phone

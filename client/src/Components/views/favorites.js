@@ -45,10 +45,8 @@ return (
   <Card style={{ width: '25rem',margin:50,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>
   <Card.Img variant="top" src="https://www.foodnavigator.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/foodnavigator.com/news/science/scientists-link-highly-processed-foods-to-memory-loss/12927114-1-eng-GB/Scientists-link-highly-processed-foods-to-memory-loss.jpg" />
   <Card.Body>
-    <Card.Title>{item.type}</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+    <Card.Title>{item.name}</Card.Title>
+    <Card.Text>{item.desc}
     </Card.Text>
   </Card.Body>
   <ListGroup className="list-group-flush">

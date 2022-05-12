@@ -16,9 +16,9 @@ router.get("/test", (req, res) => {
 //url:http://localhost:5000/api/product/add
 
 router.post("/add", async (req,res)=>{
-    const {type,price,adress,date,phone} =req.body
+    const {name,desc,price,adress,date,phone} =req.body
     try {
-        const newProduct= new Product({type,price,adress,date,phone})
+        const newProduct= new Product({name,desc,price,adress,date,phone})
         const product=  await newProduct.save()
         res
         .status(200)
