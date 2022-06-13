@@ -17,7 +17,9 @@ connectDB()
 //routes
 app.use('/api/user', require('./routes/user') )
 app.use('/api/product', require('./routes/product'))
-
+app.get("/", (req,res)=>{
+    res.send("upload file")
+})
 
 app.listen(port,(err)=>{
     err? console.log(err):console.log('the server is up and running ....');

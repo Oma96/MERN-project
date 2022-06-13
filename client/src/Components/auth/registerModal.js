@@ -7,26 +7,33 @@ import {
   Dropdown,
   SplitButton,
   DropdownButton,
+  Button
 } from "react-bootstrap";
 import { useState } from "react";
 import { registerHandler } from "../../redux/actions/auth-action";
 import styled from "styled-components";
+import Select from "react-select"
 
 const MenuItem= styled.div`
 font-size: 14px;
 cursor: pointer;
 margin-left: 25px
 `
-const Button= styled.button`
-padding: 10px;
-font-size: 20px;
-background-color: transparent;
-cursor: pointer;
-border-radius:10px;
-background-color:#DB2B39;
-border:none;
+// const Button= styled.button`
+// padding: 10px;
+// font-size: 20px;
+// background-color: transparent;
+// cursor: pointer;
+// border-radius:10px;
+// background-color:#DB2B39;
+// border:none;
 
-`
+// `
+
+const options =[
+  {value:'Client', label:'Client'},
+  {value:'Vendor',label:'Vendor'}
+]
 export default function Example() {
   //manipulate the modal
   const [show, setShow] = useState(false);
@@ -51,7 +58,7 @@ export default function Example() {
   return (
     <>
      <MenuItem>
-       <Button onClick={handleShow}>Register</Button>
+       <Button variant="danger" onClick={handleShow}>Register</Button>
      </MenuItem>
 
       <Modal show={show} onHide={handleClose}>
@@ -88,19 +95,24 @@ export default function Example() {
                 onChange={(e) => setpassword(e.target.value)}
               />
 
-              <Form.Label>Role</Form.Label>
-              <Form.Control
+               <Form.Label>Role</Form.Label>
+              {/* <Form.Control
                 type="role"
                 placeholder="Vendor or Client"
                 onChange={(e) => setRole(e.target.value)}
-              />
+              />  */}
+               <Select
+                defaultValue={role}
+                onChange={(e)=>setRole(e.target.value)}
+                options={options}
+                />
 
               
           
               
             </Form.Group>
 
-            <Button onClick={registerUser}>
+            <Button variant="danger" onClick={registerUser}>
               Submit
             </Button>
           </Form>

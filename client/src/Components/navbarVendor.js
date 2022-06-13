@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {  NavLink } from "react-router-dom";
+import {  NavLink,useNavigate } from "react-router-dom";
 import LoginModal from "../Components/auth/loginModal";
 import RegiterModal from "../Components/auth/registerModal";
 import { logoutHandler } from "../redux/actions/auth-action";
@@ -51,13 +51,14 @@ border:none;
 
 export default function navbarVendor (){
 
-
+  const navigate= useNavigate()
 
     const isAuth = useSelector((state) => state.auth.isAuth);
 //logout
   const dispatch=useDispatch()
   const logoutUser=()=>{
     dispatch(logoutHandler())
+    navigate('/')
   }
   const authLinks = (
     <>

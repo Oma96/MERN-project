@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
+import { useNavigate } from "react-router-dom";
 
 
 const Container= styled.div`
@@ -56,7 +57,7 @@ background-color:#FCE4D81;
 
 export default function homeVendor() {
 
-
+const navigate= useNavigate()
   return (
     <Container >
       <Wrapper>
@@ -68,11 +69,11 @@ export default function homeVendor() {
           {/* <Desc>. Every day and near you, 
 many merchants offer you food at low prices on our application.
  So what are you waiting for to try? Sign Up and save a meal!</Desc> */}
-          <Button>Start adding a meal!</Button>
+          <Button onClick={()=>{navigate("/Add")}}>Start adding a  bascket meal!</Button>
         </InfoContainer>
       
         </Slide>
-        <Button2> How AntiGaspi works?</Button2>
+       
         
       
       </Wrapper>
