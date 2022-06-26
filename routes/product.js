@@ -22,7 +22,7 @@ router.post("/add", async (req,res)=>{
         const product=  await newProduct.save()
         res
         .status(200)
-        .json({msg:`${type} has been added to your product list`, product})
+        .json({msg:`${name} has been added to your product list`, product})
         
     } catch (error) {
         res.status(400).json({message:error.message})
