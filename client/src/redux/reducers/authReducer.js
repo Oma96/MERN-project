@@ -7,7 +7,7 @@ import {
   } from "../action-types/auth-action-types";
   
   const initialState = {
-    user: null,
+    user:[],
     isAuth: false,
     token: localStorage.getItem("token"),
   };

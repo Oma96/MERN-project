@@ -1,14 +1,15 @@
    
-import { Nav} from "react-bootstrap";
+
 import { useSelector, useDispatch } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom";
 import LoginModal from "../Components/auth/loginModal";
 import RegiterModal from "../Components/auth/registerModal";
 import { logoutHandler } from "../redux/actions/auth-action";
 import React from "react";
-import {AiFillHeart} from 'react-icons/ai'
+
 import styled from 'styled-components'
-import {Search} from '@material-ui/icons'
+import { Button } from "react-bootstrap";
+
 
 
 const Container = styled.div `
@@ -42,25 +43,35 @@ display: flex;
 align-items: center;
 justify-content: flex-end;
 `
-const Button= styled.button`
-padding: 10px;
-font-size: 20px;
-background-color: transparent;
-cursor: pointer;
-border-radius:10px;
-background-color:#DB2B39;
-border:none;
-`
+// const Button= styled.button`
+// padding: 10px;
+// font-size: 20px;
+// background-color: transparent;
+// cursor: pointer;
+// border-radius:10px;
+// background-color:#DB2B39;
+// border:none;
+// `
 
 
 
 
 export default function NavFct() {
 const isAuth = useSelector((state) => state.auth.isAuth);
+
+const cart = useSelector((state)=>state.cart.cartItems)
+
+
+// const getCartCount=()=>{
+//   return cart.reduce((qty,product)=>qty+product.qty,0)
+// }
 //logout
+   const navigate= useNavigate()
   const dispatch=useDispatch()
   const logoutUser=()=>{
     dispatch(logoutHandler())
+    navigate('/')
+
   }
   const authLinks = (
     <>
@@ -70,8 +81,8 @@ const isAuth = useSelector((state) => state.auth.isAuth);
         <NavLink to="products" style={{textDecoration:'none',fontWeight:500,color:'black',marginLeft:10,marginRight:10}}>Products</NavLink>
        
       
-       <NavLink to="/favorites" style={{color:"#DB2B39",fontSize:30,marginRight:10}}><AiFillHeart/></NavLink>
-     <Button onClick={logoutUser} >Logout </Button>
+       <NavLink to="/favorites" style={{textDecoration:'none',fontWeight:500,color:'black', marginRight:10}}>Favorites </NavLink>
+     <Button variant ="danger"onClick={logoutUser} >Logout </Button>
      </>
   );
 

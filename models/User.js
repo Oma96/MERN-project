@@ -10,11 +10,8 @@ const userSchema = schema({
   },
   password:String,
   
-  role: {
-    type: Number,
-    default: 0
-},
-favorite:Array,
+  role: String,
+  favorite:Array,
 
   dateCreation:{
       type:Date,

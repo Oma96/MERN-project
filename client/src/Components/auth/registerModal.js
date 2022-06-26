@@ -6,26 +6,34 @@ import {
   InputGroup,
   Dropdown,
   SplitButton,
+  DropdownButton,
+  Button
 } from "react-bootstrap";
 import { useState } from "react";
 import { registerHandler } from "../../redux/actions/auth-action";
 import styled from "styled-components";
+import Select from "react-select"
 
 const MenuItem= styled.div`
 font-size: 14px;
 cursor: pointer;
 margin-left: 25px
 `
-const Button= styled.button`
-padding: 10px;
-font-size: 20px;
-background-color: transparent;
-cursor: pointer;
-border-radius:10px;
-background-color:#DB2B39;
-border:none;
+// const Button= styled.button`
+// padding: 10px;
+// font-size: 20px;
+// background-color: transparent;
+// cursor: pointer;
+// border-radius:10px;
+// background-color:#DB2B39;
+// border:none;
 
-`
+// `
+
+const options =[
+  {value:'Client', label:'Client'},
+  {value:'Vendor',label:'Vendor'}
+]
 export default function Example() {
   //manipulate the modal
   const [show, setShow] = useState(false);
@@ -36,11 +44,13 @@ export default function Example() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [role,setRole]=useState("")
+  console.log(role)
   //dispatch the action (send a request)
   const dispatch = useDispatch();
   const registerUser = (e) => {
       e.preventDefault()
-    const newUser = { name, email, password };
+    const newUser = { name, email, password,role };
     dispatch(registerHandler(newUser));
     handleClose()
   };
@@ -48,7 +58,7 @@ export default function Example() {
   return (
     <>
      <MenuItem>
-       <Button onClick={handleShow}>Register</Button>
+       <Button variant="danger" onClick={handleShow}>Register</Button>
      </MenuItem>
 
       <Modal show={show} onHide={handleClose}>
@@ -84,22 +94,25 @@ export default function Example() {
                 placeholder="Password"
                 onChange={(e) => setpassword(e.target.value)}
               />
-              <InputGroup className="mb-3">
-                <SplitButton
-                  variant="outline-secondary"
-                  title="Role"
-                  id="segmented-button-dropdown-2"
-                  alignRight
-                >
-                  <Dropdown.Item href="#">Client</Dropdown.Item>
-                  <Dropdown.Item href="#">User</Dropdown.Item>
 
-                  <Dropdown.Divider />
-                </SplitButton>
-              </InputGroup>
+               <Form.Label>Role</Form.Label>
+              {/* <Form.Control
+                type="role"
+                placeholder="Vendor or Client"
+                onChange={(e) => setRole(e.target.value)}
+              />  */}
+               <Select
+                defaultValue={role}
+                onChange={(e)=>setRole(e.target.value)}
+                options={options}
+                />
+
+              
+          
+              
             </Form.Group>
 
-            <Button onClick={registerUser}>
+            <Button variant="danger" onClick={registerUser}>
               Submit
             </Button>
           </Form>

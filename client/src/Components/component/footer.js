@@ -86,6 +86,12 @@ import {
   
   const Footer = () => {
     return (
+
+
+
+
+
+      
       <Container>
         <Left>
           <Logo>AntiGaspi</Logo>

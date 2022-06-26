@@ -10,7 +10,7 @@ margin-top:100px;
 margin-bottom: 200px;
 display: flex;
 padding: 20px;
-justify-content: space-between;
+justify-content: center;
 flex-wrap:wrap;
 `
 

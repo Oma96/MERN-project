@@ -1,21 +1,21 @@
 import React from "react";
 
-import { Modal,Form } from "react-bootstrap";
+import { Modal,Form,Button } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginHandler } from "../../redux/actions/auth-action";
 import styled from 'styled-components'
 
-const Button= styled.button`
-padding: 10px;
-font-size: 20px;
-background-color: transparent;
-cursor: pointer;
-border-radius:10px;
-background-color:#DB2B39;
-border:none;
+// // const Button= styled.button`
+// // padding: 10px;
+// // font-size: 20px;
+// // background-color: transparent;
+// // cursor: pointer;
+// // border-radius:10px;
+// // background-color:#DB2B39;
+// // border:none;
 
-`
+// `
 export default function Example() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -31,7 +31,7 @@ export default function Example() {
 
   return (
     <>
-      <Button onClick={handleShow}>
+      <Button variant="danger" onClick={handleShow}>
         Sign in
       </Button>
 
@@ -61,7 +61,7 @@ export default function Example() {
               />
             </Form.Group>
 
-            <Button  onClick={loginUser}>
+            <Button variant="danger" onClick={loginUser}>
               Submit
             </Button>
           </Form>

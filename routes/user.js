@@ -21,7 +21,7 @@ router.post("/register", async (req,res)=>{
   // step1: add a new user
 
   // récuperer les data de l'utilisateur
-  const {name,email,password}= req.body
+  const {name,email,password,role}= req.body
   try {
     // check if the email is reserved
     let user= await User.findOne({email})
@@ -31,7 +31,7 @@ router.post("/register", async (req,res)=>{
     // create a hashed password
     const hashedPassword= await bcrypt.hash(password,10)
     // create a new user
-    user= new User({name,email,password:hashedPassword})
+    user= new User({name,email,password:hashedPassword,role})
     // save the user in the db
     user.save()
 // step 2: sign a token (acesss/ login)

@@ -11,7 +11,8 @@ margin-bottom: 200px;
 display: flex;
 padding: 20px;
 justify-content: space-between;
-flex-wrap:wrap;
+flex-wrap: wrap;
+
 `
 
    export default function PanierList  ({input}) {
